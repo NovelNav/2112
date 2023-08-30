@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Librarian Dashboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Book</th>
+        <th>Borrow Date</th>
+        <th>Due Date</th>
+        <th>Returned</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in borrow_records %}
+        <tr>
+          <td>{{ record.student.user.username }}</td>
+          <td>{{ record.book.title }}</td>
+          <td>{{ record.borrow_date }}</td>
+          <td>{{ record.due_date }}</td>
+          <td>{{ record.returned }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
